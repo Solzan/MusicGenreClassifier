@@ -37,7 +37,7 @@ def findMusic(filePath,newPath,audioDir,data,splt):
         sl=splt[track_id]
         if(genre in ['Pop','Rap','Rock','Electronic','Classical']):
             out_path=newPath+"\\"+splt[track_id]+"\\"+genre
-            sutil.move(in_path,out_path)
+            shutil.move(in_path,out_path)
                 
 
 
