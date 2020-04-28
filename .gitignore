@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Numpy saved files
+*.npz
+
 # C extensions
 *.so
 
