@@ -4,10 +4,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
+spect_trimmed_len = 320
+working_directory = os.path.dirname(os.getcwd())
+
+
 types='test training validation'.split()
 genres = 'Classical Electronic Pop Rock Hip-Hop'.split()
-working_directory = os.path.dirname(os.getcwd())
-spect_trimmed_len = 320
 
 counter = 0
 for t in types:
@@ -35,3 +37,36 @@ for t in types:
         np.savez_compressed(fp, spectrograms=spectrograms) 
     with open(f'{t}_label.npz', "wb") as fp:
         np.savez_compressed(fp, labels=labels) 
+
+# genres = 'classical pop rock hiphop'.split()
+
+# counter = 0
+# mylist=[]
+# label=[]
+# i=0
+# for g in genres:
+#     tmplabel=[0,0,0,0,0]
+#     tmplabel[i]=1
+#     print(i)
+#     i=i+1
+#     if g == 'classical':
+#     	i=i+1
+
+#     genre_path = os.path.join(working_directory, "genres",  g)
+#     for filename in os.listdir(genre_path):
+#         y,sr=librosa.load(os.path.join(genre_path, filename))
+#         print(filename+ " - " + g + " - " + str(counter))
+#         spect=librosa.feature.melspectrogram(y=y,sr=sr,n_fft=4096, hop_length=2048)
+#         spect=librosa.power_to_db(spect,ref=np.max)
+#         print(spect.shape)
+#         if spect.shape[1] >= spect_trimmed_len:
+#             mylist.append(spect[:,:spect_trimmed_len])
+#             label.append(tmplabel)
+#         counter+=1
+# spectrograms = np.array(mylist).astype(np.float32)
+# labels = np.array(label)
+
+# with open('gtzan.npz', "wb") as fp:
+#     np.savez_compressed(fp, spectrograms=spectrograms) 
+# with open('gtzan_label.npz', "wb") as fp:
+#     np.savez_compressed(fp, labels=labels) 
