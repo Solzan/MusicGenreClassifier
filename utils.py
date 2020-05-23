@@ -61,5 +61,3 @@ def load_data(split_into_k_equal_parts = False, k = 3):
 	testX, testY = sklearn.utils.shuffle(testX, testY, random_state=7)
 
 	return (trainX, trainY, validationX, validationY, testX, testY)
-
-load_data(split_into_k_equal_parts = True, k=6)
