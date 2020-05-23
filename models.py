@@ -45,9 +45,8 @@ def simple_cnn(input_shape, conv_layers,
     model.add(Conv2D(conv_layers[0], kernel_size, activation='relu', input_shape=input_shape+(1,)))
     model.add(MaxPooling2D(pool_size))
     model.add(regularization_layer)
-    
-    for index, filter in enumerate(conv_layers[1:]):
-        model.add(Conv2D(conv_layers[index], kernel_size, activation='relu'))
+    for index, filters in enumerate(conv_layers[1:]):
+        model.add(Conv2D(filters, kernel_size, activation='relu'))
         model.add(MaxPooling2D(pool_size))
         model.add(regularization_layer)
         
